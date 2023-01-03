@@ -46,4 +46,4 @@ The user scrolls through other trends and can like or dislike trends.
 
 Our home page as well as our other pages will have the same layout, 
 
-![AltText]("file:///Users/emmablaido/Desktop/Screen%20Shot%202023-01-03%20at%202.04.35%20PM.png")
+![Alt text](Screen Shot 2023-01-03 at 1.26.11 PM)
