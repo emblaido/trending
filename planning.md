@@ -16,7 +16,7 @@ Backend will be a collaborative effort between all three team members
 
 this Apps inspiration comes from urban dictionary
 
-!{AltText}("file:///Users/emmablaido/Desktop/Screen%20Shot%202023-01-03%20at%201.26.11%20PM.png")
+![Screen Shot 2023-01-03 at 1 26 11 PM](https://user-images.githubusercontent.com/116329882/210457144-902635e7-c60f-4f85-9600-52d1a5125909.png)
 
 
 In this app, you will be able to...
@@ -46,4 +46,4 @@ The user scrolls through other trends and can like or dislike trends.
 
 Our home page as well as our other pages will have the same layout, 
 
-![Alt text](Screen Shot 2023-01-03 at 1.26.11 PM)
+![Screen Shot 2023-01-03 at 2 04 35 PM](https://user-images.githubusercontent.com/116329882/210457199-1c110135-bb72-4330-9598-92e9b0f48ae1.png)
