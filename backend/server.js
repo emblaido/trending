@@ -1,25 +1,16 @@
-// require("dotenv").config();
-// require("./config/db.connection")
-
-// const {PORT, MONGODB_URI} = process.env;
-// // console.log(MONGODB_URI)
-// const express = require("express")
-
-// const app = express()
-
-// app.get("/meh", (req,res)=>{
-//     res.send(" this works ")
-// })
-
-// app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
-
-const express = require("express")
-const app = express()
-
+// initializing 
 require("dotenv").config();
 require('./config/db.connection')
 
 const {PORT, MONGODB_URI} = process.env;
+
+const express = require("express")
+const app = express()
+
+
+app.get("/", (req,res)=>{
+    res.redirect('/fashion')
+})
 
 // app dependencies 
 const cors = require('cors')
@@ -29,9 +20,10 @@ const morgan = require ('morgan')
 const bookController = require('./controllers/book_controller')
 const fashionController = require('./controllers/fashion_controller')
 const wordController = require('./controllers/word_controller')
-
+console.log(bookController)
 //express / app middleware
 app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 // //Cors helper function 
 app.use(cors())
@@ -40,13 +32,10 @@ app.use(cors())
 app.use(morgan('dev'))
 
 
-app.use('/Fashion', fashionController)
-app.use('/Book', bookController)
-app.use('/Word', wordController)
+app.use('/fashion', fashionController)
+app.use('/book', bookController)
+app.use('/word', wordController)
 
-app.get("/", (req,res)=>{
-    res.send(" this works ")
-})
 
 // basic error handling for bad product indexes
 app.get('/error', (req,res)=>{
