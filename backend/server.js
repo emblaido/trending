@@ -9,7 +9,7 @@ const app = express()
 
 
 app.get("/", (req,res)=>{
-    res.redirect('/fashion')
+    res.redirect('/book')
 })
 
 // app dependencies 
