@@ -11,9 +11,6 @@ const app = express()
 // app.get(['/', '/home', '/book', '/fashion', '/word'], (req,res)=>{
 //     res.send("home")
 // })
-app.get('/', (req,res) =>{
-    res.redirect('/home')
-})
 
 // app dependencies 
 const cors = require('cors')
@@ -35,11 +32,14 @@ app.use(cors())
 // //Morgan 
 app.use(morgan('dev'))
 
-
 app.use('/fashion', fashionController)
 app.use('/book', bookController)
 app.use('/word', wordController)
 app.use('/home', homeController)
+
+app.get('/', (req,res) =>{
+    res.redirect('/home')
+})
 
 
 // basic error handling for bad product indexes

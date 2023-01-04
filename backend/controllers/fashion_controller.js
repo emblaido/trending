@@ -2,7 +2,7 @@ const { json } = require('express')
 const express = require('express')
 const router = express.Router()
 router.use(express.json())
-const {Fashion} = require('../models')
+// const {Fashion} = require('../models')
 const db = require('../models')
 
 router.get('/', (req, res, next) => {
