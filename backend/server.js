@@ -8,12 +8,12 @@ const express = require("express")
 const app = express()
 
 
-app.get(['/', '/book', '/fashion', '/word'], (req,res)=>{
-    res.send("home")
-})
-// app.get('/fashion', (req,res) =>{
-//     res.redirect('/fashion')
+// app.get(['/', '/home', '/book', '/fashion', '/word'], (req,res)=>{
+//     res.send("home")
 // })
+app.get('/', (req,res) =>{
+    res.redirect('/home')
+})
 
 // app dependencies 
 const cors = require('cors')
@@ -23,6 +23,7 @@ const morgan = require ('morgan')
 const bookController = require('./controllers/book_controller')
 const fashionController = require('./controllers/fashion_controller')
 const wordController = require('./controllers/word_controller')
+const homeController = require('./controllers/home_controller')
 console.log(bookController)
 //express / app middleware
 app.use(express.json())
@@ -38,6 +39,7 @@ app.use(morgan('dev'))
 app.use('/fashion', fashionController)
 app.use('/book', bookController)
 app.use('/word', wordController)
+app.use('/home', homeController)
 
 
 // basic error handling for bad product indexes
