@@ -8,9 +8,12 @@ const express = require("express")
 const app = express()
 
 
-app.get("/", (req,res)=>{
-    res.redirect('/book')
+app.get(['/', '/book', '/fashion', '/word'], (req,res)=>{
+    res.send("home")
 })
+// app.get('/fashion', (req,res) =>{
+//     res.redirect('/fashion')
+// })
 
 // app dependencies 
 const cors = require('cors')
