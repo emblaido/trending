@@ -9,8 +9,8 @@ router.use(express.json())
 
 //Static route 
 
-router.get('/awesome', (req, res, next) => {
-        res.json({message: 'Products are awesome!'})
+router.get('/word', (req, res, next) => {
+        res.json({message: 'whats the word bird?'})
 })
 
 module.exports = router
