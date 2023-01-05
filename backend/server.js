@@ -40,9 +40,9 @@ app.use(cors())
 app.use(morgan('dev'))
 
 
-app.use('/Fashion', fashionController)
-app.use('/Book', bookController)
-app.use('/Word', wordController)
+app.use('/fashion', fashionController)
+app.use('/book', bookController)
+app.use('/word', wordController)
 
 app.get("/", (req,res)=>{
     res.send(" this works ")
