@@ -5,30 +5,54 @@ router.use(express.json())
 const {Fashion} = require('../models')
 //const db = require('../models')
 
-// router.get('/', (req, res, next) => {
-//     res.json({message: "you're a fashionista"})
-// })
-
-
+//Index route
 router.get('/', async (req,res)=>{ 
     try {
-        const Home = await Fashion.find({})
-        console.log(Home)
-        return res.status(200).json(Home)
+        const fashionista = await Fashion.find({})
+        return res.status(200).json(fashionista)
     } catch(error) {
         console.error(error)
         return next(error)
     }
 })
 
-router.post('/', async(req, res)=>{
-    console.log("posting a fashion trend")
-    
+//Show Route
+router.get('/:id', async(req,res)=>{
     try{
-        const newFashion = await Fashion.create(req.body)
+        const findFashion = await Book.findById(req.params.id)
+        res.status(201).json(findFashion)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
+
+//Post Route
+router.post('/', async(req, res)=>{
+    try{
+        const newFashion = await Book.create(req.body)
         res.status(201).json(newFashion)
     }catch(err){
         res.status(400).json ({error:err.message})
+    }
+})
+
+//Update Route
+router.put('/:id', async(req,res, next)=>{
+    try{
+        const updatedFashion = await Fashion.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(201).json(updatedFashion)
+    }catch(err){
+        res.status(400).json ({error: err.message})
+    }
+})
+
+// Delete Route
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedFashion = await Fashion.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedFashion)
+    }catch(err){
+        res.status(400).json({error: err.message})
     }
 })
 
