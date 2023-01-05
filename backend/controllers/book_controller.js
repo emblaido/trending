@@ -20,6 +20,7 @@ const {Book} = require('../models')
 //     }
 // })
 
+//index route 
 router.get('/', async (req,res)=>{ 
     try {
         const books = await Book.find({})
@@ -31,15 +32,43 @@ router.get('/', async (req,res)=>{
     }
 })
 
+//Show Route 
+router.get('/:id', async(req,res)=>{
+    try{
+        const findBooks = await Book.findById(req.params.id)
+        res.status(201).json(findBooks)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
 
+//Post Route 
 router.post('/', async(req, res)=>{
-    console.log("buk")
-    
     try{
         const newBook = await Book.create(req.body)
         res.status(201).json(newBook)
     }catch(err){
         res.status(400).json ({error:err.message})
+    }
+})
+
+//Update 
+// router.put('/:id', async(req,res)=>{
+//     try{
+//         const updatedBook = await Book.findByIdAndUpdate(req.params.id)
+//         res.status(201).json(updatedBook)
+//     }catch(err){
+//         res.status(400).json ({error: err.message})
+//     }
+// })
+
+// Delet 
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedBook = await Book.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedBook)
+    }catch(err){
+        res.status(400).json({error: err.message})
     }
 })
 
