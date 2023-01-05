@@ -21,7 +21,8 @@ const bookController = require('./controllers/book_controller')
 const fashionController = require('./controllers/fashion_controller')
 const wordController = require('./controllers/word_controller')
 const homeController = require('./controllers/home_controller')
-console.log(bookController)
+// console.log(bookController)
+
 //express / app middleware
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))

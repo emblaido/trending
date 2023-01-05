@@ -2,23 +2,35 @@ const { json } = require('express')
 const express = require('express')
 const router = express.Router()
 router.use(express.json())
-const {Home} = require('../models')
+const {Book} = require('../models')
 //const db = require('../models')
 
-router.get('/', (req, res, next) => {
-    res.json({message: "bookworm"})
-})
+// router.get('/', (req, res, next) => {
+//     res.json({message: "bookworm"})
+// })
 
+
+// router.get('/', async (req,res)=>{ 
+//     try {
+//         const Book = await Book.find({})
+//         return res.status(200).json(Home)
+//     } catch(error) {
+//         console.error(error)
+//         return next(error)
+//     }
+// })
 
 router.get('/', async (req,res)=>{ 
     try {
-        const Book = await Book.find({})
-        return res.status(200).json(Home)
+        const books = await Book.find({})
+        console.log(books)
+        return res.status(200).json(books)
     } catch(error) {
         console.error(error)
         return next(error)
     }
 })
+
 
 router.post('/', async(req, res)=>{
     console.log("buk")
