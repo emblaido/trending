@@ -28,13 +28,31 @@ router.get('/:id', async(req, res)=>{
 
 //post
 router.post('/', async(req, res)=>{
-    console.log("You're HOME")
-    
     try{
         const newHome = await Home.create(req.body)
         res.status(201).json(newHome)
     }catch(err){
         res.status(400).json ({error:err.message})
+    }
+})
+
+//update 
+router.put('/:id', async(req,res, next)=>{
+    try{
+        const updatedHome= await Home.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(201).json(updatedHome)
+    }catch(err){
+        res.status(400).json ({error: err.message})
+    }
+})
+
+// Delete
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedHome = await Home.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedHome)
+    }catch(err){
+        res.status(400).json({error: err.message})
     }
 })
 
