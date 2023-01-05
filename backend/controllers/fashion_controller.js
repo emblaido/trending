@@ -26,14 +26,10 @@ router.get('/:id', async(req,res)=>{
     }
 })
 
-
-
-
+//Post Route
 router.post('/', async(req, res)=>{
-    console.log("posting a fashion trend")
-    
     try{
-        const newFashion = await Fashion.create(req.body)
+        const newFashion = await Book.create(req.body)
         res.status(201).json(newFashion)
     }catch(err){
         res.status(400).json ({error:err.message})
