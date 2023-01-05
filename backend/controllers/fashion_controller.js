@@ -5,7 +5,7 @@ router.use(express.json())
 const {Fashion} = require('../models')
 //const db = require('../models')
 
-//index route
+//Index route
 router.get('/', async (req,res)=>{ 
     try {
         const fashionista = await Fashion.find({})
@@ -15,6 +15,19 @@ router.get('/', async (req,res)=>{
         return next(error)
     }
 })
+
+//Show Route
+router.get('/:id', async(req,res)=>{
+    try{
+        const findFashion = await Book.findById(req.params.id)
+        res.status(201).json(findFashion)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
+
+
+
 
 router.post('/', async(req, res)=>{
     console.log("posting a fashion trend")
