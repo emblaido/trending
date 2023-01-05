@@ -46,5 +46,14 @@ router.put('/:id', async(req,res, next)=>{
     }
 })
 
+// Delete
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedHome = await Home.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedHome)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
 
 module.exports = router
