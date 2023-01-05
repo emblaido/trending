@@ -1,7 +1,8 @@
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 
 module.exports = {
     Book: require('./Book'),
     Fashion: require('./Fashion'),
-    Word: require('./Word')
+    Word: require('./Word'),
+    Home: require('./Home')
     }
