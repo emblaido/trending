@@ -5,26 +5,10 @@ router.use(express.json())
 const {Book} = require('../models')
 //const db = require('../models')
 
-// router.get('/', (req, res, next) => {
-//     res.json({message: "bookworm"})
-// })
-
-
-// router.get('/', async (req,res)=>{ 
-//     try {
-//         const Book = await Book.find({})
-//         return res.status(200).json(Home)
-//     } catch(error) {
-//         console.error(error)
-//         return next(error)
-//     }
-// })
-
 //index route 
 router.get('/', async (req,res)=>{ 
     try {
         const books = await Book.find({})
-        console.log(books)
         return res.status(200).json(books)
     } catch(error) {
         console.error(error)
@@ -53,16 +37,16 @@ router.post('/', async(req, res)=>{
 })
 
 //Update 
-// router.put('/:id', async(req,res)=>{
-//     try{
-//         const updatedBook = await Book.findByIdAndUpdate(req.params.id)
-//         res.status(201).json(updatedBook)
-//     }catch(err){
-//         res.status(400).json ({error: err.message})
-//     }
-// })
+router.put('/:id', async(req,res)=>{
+    try{
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id)
+        res.status(201).json(updatedBook)
+    }catch(err){
+        res.status(400).json ({error: err.message})
+    }
+})
 
-// Delet 
+// Delete
 router.delete('/:id', async(req,res)=>{
     try{
         const deletedBook = await Book.findByIdAndDelete(req.params.id)
