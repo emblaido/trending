@@ -5,9 +5,9 @@ router.use(express.json())
 const {Home} = require('../models')
 //const db = require('../models')
 
-router.get('/', (req, res, next) => {
-    res.json({message: "bookworm"})
-})
+// router.get('/', (req, res, next) => {
+//     res.json({message: "bookworm"})
+// })
 
 
 router.get('/', async (req,res)=>{ 

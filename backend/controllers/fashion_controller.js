@@ -5,14 +5,14 @@ router.use(express.json())
 const {Fashion} = require('../models')
 //const db = require('../models')
 
-router.get('/', (req, res, next) => {
-    res.json({message: "you're a fashionista"})
-})
+// router.get('/', (req, res, next) => {
+//     res.json({message: "you're a fashionista"})
+// })
 
 
 router.get('/', async (req,res)=>{ 
     try {
-        const Home = await Fashion.find({})
+        const newFashion = Fashion.find({})
         return res.status(200).json(Home)
     } catch(error) {
         console.error(error)
