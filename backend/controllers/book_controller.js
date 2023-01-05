@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-// Model import - goes here 
+// Model import - goes here
 
 router.use(express.json())
 
