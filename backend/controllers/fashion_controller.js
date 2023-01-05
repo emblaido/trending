@@ -36,7 +36,7 @@ router.post('/', async(req, res)=>{
     }
 })
 
-//Update 
+//Update Route
 router.put('/:id', async(req,res, next)=>{
     try{
         const updatedFashion = await Fashion.findByIdAndUpdate(req.params.id, req.body, {new: true})
@@ -45,4 +45,15 @@ router.put('/:id', async(req,res, next)=>{
         res.status(400).json ({error: err.message})
     }
 })
+
+// Delete Route
+router.delete('/:id', async(req,res)=>{
+    try{
+        const deletedFashion = await Fashion.findByIdAndDelete(req.params.id)
+        res.status(201).json(deletedFashion)
+    }catch(err){
+        res.status(400).json({error: err.message})
+    }
+})
+
 module.exports = router
