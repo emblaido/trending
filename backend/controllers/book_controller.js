@@ -37,9 +37,9 @@ router.post('/', async(req, res)=>{
 })
 
 //Update 
-router.put('/:id', async(req,res)=>{
+router.put('/:id', async(req,res, next)=>{
     try{
-        const updatedBook = await Book.findByIdAndUpdate(req.params.id)
+        const updatedBook = await Book.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.status(201).json(updatedBook)
     }catch(err){
         res.status(400).json ({error: err.message})
