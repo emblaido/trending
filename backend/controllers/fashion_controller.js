@@ -36,4 +36,13 @@ router.post('/', async(req, res)=>{
     }
 })
 
+//Update 
+router.put('/:id', async(req,res, next)=>{
+    try{
+        const updatedFashion = await Fashion.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.status(201).json(updatedFashion)
+    }catch(err){
+        res.status(400).json ({error: err.message})
+    }
+})
 module.exports = router
