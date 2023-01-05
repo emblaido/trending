@@ -5,21 +5,28 @@ router.use(express.json())
 const {Home} = require('../models')
 //const db = require('../models')
 
-router.get('/', (req, res, next) => {
-    res.json({message: "you're HOME"})
-})
-
-
+//Index route
 router.get('/', async (req,res)=>{ 
     try {
-        const Home = await db.Home.find({})
-        return res.status(200).json(Home)
+        const Homes = await Home.find({})
+        return res.status(200).json(Homes)
     } catch(error) {
         console.error(error)
         return next(error)
     }
 })
 
+//show 
+router.get('/:id', async(req, res)=>{
+    try{
+        const findHome = await Home.findById(req.params.id)
+        res.status(201).json(findHome)
+    }catch (err){
+        res.status(400).json({error: err.message})
+    }
+})
+
+//post
 router.post('/', async(req, res)=>{
     console.log("You're HOME")
     
