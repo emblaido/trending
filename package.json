@@ -20,5 +20,13 @@
     "nodemon": "^2.0.20"
   },
   "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emblaido/trending.git"
+  },
+  "bugs": {
+    "url": "https://github.com/emblaido/trending/issues"
+  },
+  "homepage": "https://github.com/emblaido/trending#readme",
   "description": ""
 }
