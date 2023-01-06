@@ -6,7 +6,7 @@ const connectionStr = process.env.MONGODB_URI;
 console.log(connectionStr)
 
 mongoose.set('strictQuery', true);
-mongoose.connect(connectionStr);
+mongoose.connect(process.env.MONGODB_URI || connectionStr);
 
 mongoose.connection.on('connected', () => {
   console.log(`[${new Date().toLocaleTimeString()}] - MongoDB connected ... 🙌 🙌 🙌`); 

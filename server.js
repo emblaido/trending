@@ -67,4 +67,4 @@ app.get('*', (req,res,next)=>{
     }
 })
 
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
+app.listen(process.env.PORT || 4000, () => console.log(`listening on PORT ${PORT}`));
