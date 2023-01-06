@@ -4,5 +4,5 @@ const homeSchema = new mongoose.Schema({
 }, {timeStamps: true})
 
 const Home = mongoose.model("Home", homeSchema)
-
+//nothing
 module.exports = Home
