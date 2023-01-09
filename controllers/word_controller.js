@@ -45,7 +45,9 @@ router.post('/', async(req, res)=>{
 
 router.put('/:id', async(req,res, next)=>{
     try{
+        console.log(req.body)
         const updatedWord = await Word.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        console.log(updatedWord)
         res.status(201).json(updatedWord)
     }catch(err){
         res.status(400).json ({error: err.message})
