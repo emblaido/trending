@@ -20,6 +20,16 @@ router.get('/', async (req,res)=>{
     }
 })
 
+router.get('/:id', async(req, res)=>{
+    try{
+        const findWord = await Word.findById(req.params.id)
+        res.status(201).json(findWord)
+    }catch (err){
+        res.status(400).json({error: err.message})
+    }
+})
+
+
 router.post('/', async(req, res)=>{
     console.log("word bird")
     
