@@ -20,14 +20,16 @@ router.get('/', async (req,res)=>{
     }
 })
 
-router.get('/:id', async(req,res, next)=>{
+router.get('/:id', async(req, res)=>{
     try{
         const findWord = await Word.findById(req.params.id)
+        console.log(findWord)
         res.status(201).json(findWord)
-    }catch(err){
-        res.status(400).json ({error: err.message})
+    }catch (err){
+        res.status(400).json({error: err.message})
     }
 })
+
 
 router.post('/', async(req, res)=>{
     console.log("word bird")
@@ -43,7 +45,9 @@ router.post('/', async(req, res)=>{
 
 router.put('/:id', async(req,res, next)=>{
     try{
+        console.log(req.body)
         const updatedWord = await Word.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        console.log(updatedWord)
         res.status(201).json(updatedWord)
     }catch(err){
         res.status(400).json ({error: err.message})
