@@ -2,24 +2,12 @@ const mongoose = require('mongoose');
 
 //Blueprint on how our document within a collection should look!
 const BookSchema = new mongoose.Schema({
-  image:{
-    type: String,
-    require: [true, "Image can not be empty" ]
+  image: String,
+  name: {type: String, require: true},
+  author: String,
+  description: String,
   },
-  title: {
-   type: String,
-   require: [true, "Title can not be empty"], 
-  },
-  author:{
-    type: String,
-    require: [true, "Author can not be empty" ]
-  },
-  description:{
-    type: String,
-    require: [true, "Description can not be empty" ]
-  },
-  link: String
-},
+  // link: String
 {timestamps: true 
 // this will add a time stamp with the fields createdAt and updatedAt
 });
